@@ -807,6 +807,58 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Scripts",
+			"item": [
+				{
+					"name": "Execute Script",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.variables.set('scriptName','0.1');"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}/fmi/data/{{version}}/databases/{{database}}/layouts/{{layout}}/script/{{scriptName}}",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"fmi",
+								"data",
+								"{{version}}",
+								"databases",
+								"{{database}}",
+								"layouts",
+								"{{layout}}",
+								"script",
+								"{{scriptName}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
